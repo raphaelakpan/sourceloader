@@ -1,0 +1,16 @@
+.Upload {
+  .list {
+    list-style: none;
+    padding-left: 0px;
+
+    &-item {
+      border: 1px solid #ccc;
+      padding: 5px;
+      margin-top: -1px;
+    }
+  }
+
+  .spinner {
+    width: 40px;
+  }
+}

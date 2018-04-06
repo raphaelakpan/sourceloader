@@ -1,0 +1,36 @@
+.Files {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-auto-rows: min-content;
+
+  .file {
+    border: 1px solid #ccc;
+    padding: 10px;
+    color: #666;
+    min-height: 4rem;
+    word-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .name {
+      margin-bottom: 10px;
+    }
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      width: 2.5rem;
+    }
+
+    .download {
+      color: green;
+      cursor: pointer;
+    }
+
+    .delete {
+      color: red;
+      cursor: pointer;
+    }
+  }
+}

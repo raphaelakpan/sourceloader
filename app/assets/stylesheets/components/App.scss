@@ -1,0 +1,19 @@
+.App {
+  display: flex;
+  min-height: 100vh;
+  background: #efefef;
+  justify-content: center;
+  align-items: center;
+
+  &-item {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    width: 40%;
+    height: 90vh;
+    margin: 12px;
+    overflow: scroll;
+  }
+}
+
+
