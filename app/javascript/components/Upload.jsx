@@ -19,8 +19,11 @@ class Upload extends React.Component {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData();
+    const { files } = this.state;
 
-    this.state.files.forEach(file => {
+    if (files.length === 0) return;
+
+    files.forEach(file => {
       formData.append('files[]', file, file.name);
     });
 
@@ -49,7 +52,7 @@ class Upload extends React.Component {
   }
 
   render() {
-    const { uploading, uploadPercentage } = this.state;
+    const { uploading, uploadPercentage, files } = this.state;
 
     return (
       <form className="App-item Upload" onSubmit={this.handleUpload} ref="form">
@@ -73,7 +76,7 @@ class Upload extends React.Component {
           }
         </div>
         <div className="form-group">
-          <button className="btn btn-primary" type="submit"> Upload Files </button>
+          <button className="btn btn-primary" type="submit" disabled={files.length === 0}> Upload Files </button>
           {uploading &&
             <img className="spinner" src="/loading_spinner.gif" alt="loading..." />
           }

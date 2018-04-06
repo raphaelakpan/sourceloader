@@ -1,12 +1,16 @@
 import React from 'react';
 
 const File = props => {
+  const { file } = props;
+
   return (
     <div className="file">
-      <div className="name">{props.file.name}</div>
+      <div className="name">{file.name}</div>
       <div className="buttons">
-        <i className="fa fa-download download" onClick={() => props.handleFileDownload()}></i>
-        <i className="fa fa-trash-alt delete" onClick={() => props.handleFileDelete(props.file.id)}></i>
+        <a href={file.url} download={file.name}>
+          <i className="fa fa-download download"></i>
+        </a>
+        <i className="fa fa-trash-alt delete" onClick={() => props.deleteUpload(file.id)}></i>
       </div>
     </div>
   );

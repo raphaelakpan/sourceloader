@@ -1,5 +1,5 @@
 class UploadsController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: [:create]
+  skip_before_action :verify_authenticity_token, only: [:create, :destroy]
 
   def index
     @uploads = uploaded_files
@@ -7,7 +7,8 @@ class UploadsController < ApplicationController
 
   def create
     params[:files].each do |file|
-      uploaded_file = Upload.where(file: file.original_filename)
+      filename =  file.original_filename.split().join('_')
+      uploaded_file = Upload.where(file: filename)
       next if uploaded_file.present?
       upload = Upload.new
       upload.file = file
@@ -19,9 +20,7 @@ class UploadsController < ApplicationController
 
   def destroy
     upload = Upload.find(params[:id])
-    binding.pry
     upload.destroy
-    render status: :ok
   end
 
   private

@@ -20,13 +20,21 @@ class App extends React.Component {
     this.setState({ files });
   }
 
-  deleteUpload(index) {
-    this.setState({
-      files: [
-        ...this.state.files.slice(0, index - 1),
-        ...this.state.files.slice(index)
-      ]
-    })
+  deleteUpload(id) {
+    const confirmDelete = confirm("Delete file?");
+    if (!confirmDelete) return;
+
+    const { files } = this.state;
+    const index = this.state.files.findIndex(file => file.id === id);
+
+    axios.delete(`/uploads/${id}`).then(() => {
+      this.setState({
+        files: [
+          ...files.slice(0, index),
+          ...files.slice(index + 1)
+        ]
+      })
+    }).catch(error => console.log(error));
   }
 
   render() {
@@ -35,7 +43,6 @@ class App extends React.Component {
         <Upload
           newUploads={this.newUploads}
         />
-
         <Files
           deleteUpload={this.deleteUpload}
           files={this.state.files}
