@@ -76,7 +76,7 @@ class Upload extends React.Component {
           }
         </div>
         <div className="form-group">
-          <button className="btn btn-primary" type="submit" disabled={files.length === 0}> Upload Files </button>
+          <button className="btn btn-primary" type="submit" disabled={files.length === 0}> {uploading ? 'Uploading...' : 'Upload Files' }  </button>
           {uploading &&
             <img className="spinner" src="/loading_spinner.gif" alt="loading..." />
           }

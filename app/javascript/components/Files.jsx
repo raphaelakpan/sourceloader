@@ -8,7 +8,7 @@ const Files = (props) => {
         <File
           file={file}
           key={index}
-          handleFileDelete={props.deleteUpload}
+          deleteUpload={props.deleteUpload}
         />
       )}
     </div>
