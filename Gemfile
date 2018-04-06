@@ -18,7 +18,6 @@ gem 'pg'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'bootstrap', '~> 4.0.0'
 gem 'carrierwave', '~> 1.0'
-gem 'rmagick'
 gem 'webpacker', '3.2.0'
 gem 'webpacker-react', '~> 0.3.2'
 
